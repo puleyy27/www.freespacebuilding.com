@@ -1,0 +1,52 @@
+const GALERY = {
+  placeholder: 'images/placeholder.jpg',
+  layanan: {
+    'desain-3d-interior': 'images/layanan/desain-3d-interior.jpg',
+    'desain-3d-bangunan': 'images/layanan/desain-3d-bangunan.jpg',
+    'bestek-gambar-kerja': 'images/layanan/bestek-gambar-kerja.jpeg',
+    'analisis-struktur': 'images/layanan/analisis-struktur.jpg',
+    'estimasi-rab': 'images/layanan/estimasi-rab.jpg',
+    'paket-all-in': 'images/layanan/paket-all-in.jpg',
+  },
+  portfolio: {
+    'Iqbal Office': 'images/portfolio/Iqbal Office.jpg',
+    'Rumah Purwakarta': 'images/portfolio/Rumah Purwakarta.jpg',
+    'Walk In Closet': 'images/portfolio/Walk In Closet.jpg',
+    'Perum dewata': 'images/portfolio/Perum dewata.jpeg',              
+    'Bumi Prima Cimahi 2021': 'images/portfolio/bumi-prima-cimahi-2021.jpg',
+    'Kos Bogor': 'images/portfolio/Kos Bogor.jpg',
+    'Kitchen Set': 'images/portfolio/Kitchen Set.jpg',
+    'Stairs': 'images/portfolio/Stairs.jpg',
+    'kitchen set mas gifar': 'images/portfolio/kitchen set mas gifar.jpg',
+    'BackDrop': 'images/portfolio/BackDrop.jpg',
+  },
+  proses: [
+    'images/proses/01-konsultasi.jpg',
+    'images/proses/02-survey-lahan.jpg',
+    'images/proses/03-konsep-3d.jpg',
+    'images/proses/04-ded-struktur.jpg',
+    'images/proses/05-rab-material.jpg',
+    'images/proses/06-eksekusi.jpg',
+    'images/proses/07-serah-terima.jpg',
+  ],
+  tim: {
+    'FARIS MUHAMMAD SIDIQ': 'images/tim/faris.jpeg',        
+    'MUZQY ZIBRAN IBRANI': 'images/tim/MUZQY ZIBRAN IBRANI.jpeg',
+    'SASKA DEWINTY': 'images/tim/saska.jpeg',                 
+    'KINANTI RAMADHIANI SUGANDA': 'images/tim/kinanti.jpeg',  
+    'SAFEER SAUMI': 'images/tim/safeer.jpeg',
+    'FAHRI ARDIANSYAH': 'images/tim/fahri.jpeg',
+  },
+  prosesUmum: [
+    ['images/proses/02-survey-lahan.jpg', 'Survey Lahan'],
+    ['images/proses/03-konsep-3d.jpg', 'Konsep & 3D'],
+    ['images/proses/04-ded-struktur.jpg', 'DED & Struktur'],
+    ['images/proses/06-eksekusi.jpg', 'Eksekusi'],
+    ['images/proses/07-serah-terima.jpg', 'Serah Terima'],
+  ],
+  galeri: {
+    'bumi prima cimahi 2021': [
+      'images/portfolio/bumi-prima-cimahi-2021.jpg',
+    ],
+  },
+};

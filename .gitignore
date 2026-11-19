@@ -1,0 +1,4 @@
+editor.html
+api/config.php
+uploads/bukti/*
+!uploads/bukti/.gitkeep

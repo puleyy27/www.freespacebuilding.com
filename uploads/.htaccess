@@ -1,0 +1,5 @@
+# Folder upload: jangan pernah menjalankan skrip dari sini & matikan daftar isi folder.
+Options -Indexes
+<FilesMatch "\.(php|phtml|phar|php[0-9])$">
+    Require all denied
+</FilesMatch>
