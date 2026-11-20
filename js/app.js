@@ -765,12 +765,11 @@ const IM = (i, src) => `
           <p><b>Menunggu verifikasi admin</b></p>
           <p class="mu" style="font-size:.9rem">Bukti pembayaran sudah terkirim. Admin akan memeriksa bukti dan memastikan dana masuk. Jadwal konsultasi aktif setelah pembayaran disetujui.</p>
           ${idBox(id)}
-          <p class="mu" id="wv" style="font-size:.85rem">Memeriksa status…</p>
+          <p class="mu" id="wv" style="font-size:.85rem"></p>
           <div class="acts two">
             <a class="btn l" href="${wa}" target="_blank" rel="noopener">Hubungi Admin</a>
             <button type="button" class="btn" id="wc">Cek Status</button>
           </div>
-          <p class="mu" style="font-size:.8rem;margin-top:12px">Halaman ini diperbarui otomatis. Anda juga bisa menutupnya dan cek nanti lewat menu Cek Booking.</p>
         </div>`;
       const msg = $('#wv', el);
       let timer = null, busy = false;
@@ -786,12 +785,12 @@ const IM = (i, src) => `
           if (r == 'hilang') { busy = false; return; }
           msg.textContent = 'Belum diverifikasi · dicek ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
         } catch (_) {
-          if (msg.isConnected) msg.textContent = 'Menunggu admin… (belum bisa terhubung ke server, mencoba lagi)';
+          /* gagal terhubung: diam saja, akan dicoba lagi otomatis */
         }
         busy = false;
         if (el.isConnected && el._wr === run) timer = setTimeout(tick, POLL_MS);
       };
-      $('#wc', el).onclick = () => { clearTimeout(timer); msg.textContent = 'Memeriksa status…'; tick(); };
+      $('#wc', el).onclick = () => { clearTimeout(timer); tick(); };
       tick();
     }
 
@@ -1321,7 +1320,7 @@ const IM = (i, src) => `
 
     $('#fq').innerHTML = list.length
       ? list.map((f, i) => {
-          const on = i === 0 && !query;
+          const on = false;
           return `
           <div class="faq${on ? ' on' : ''}">
             <button aria-expanded="${on}">${f[0]}<span class="x">+</span></button>

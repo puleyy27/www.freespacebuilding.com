@@ -97,10 +97,10 @@ function notif_admin(array $b): bool
         . "Metode : " . ($b['metode_bayar'] ?? '-') . "\n"
         . "Pengirim : " . ($b['nama_pengirim'] ?? '-') . "\n"
         . ($bukti ? "Foto bukti : {$bukti}\n" : '')
-        . "\nPastikan uang sudah masuk ke rekening, lalu *balas pesan ini*:\n"
-        . "✅ *ACC {$b['id']}*  → pembayaran valid\n"
-        . "❌ *TOLAK {$b['id']} alasan*  → batalkan & hapus pendaftaran\n\n"
-        . "(Atau buka halaman verifikasi: " . link_verif($b['id']) . ")";
+        . "\nPastikan uang sudah masuk ke rekening, lalu *ketuk salah satu link* di bawah:\n\n"
+        . "✅ *ACC* (pembayaran valid):\n" . link_verif($b['id']) . "&aksi=acc\n\n"
+        . "❌ *TOLAK* (batalkan pendaftaran):\n" . link_verif($b['id']) . "&aksi=tolak\n\n"
+        . "_Atau balas chat ini:_ *ACC {$b['id']}* / *TOLAK {$b['id']} alasan*";
 
     return wa_kirim($admin, $pesan, $bukti);
 }

@@ -1,9 +1,12 @@
 <?php
-$DB_HOST = '127.0.0.1';
-$DB_PORTS = ['3306', '3307'];
-$DB_NAME = 'freespace_db';
-$DB_USER = 'root';
-$DB_PASS = '';
+$_cfgFile = __DIR__ . '/config.php';
+$_C = is_file($_cfgFile) ? (require $_cfgFile) : [];
+if (!is_array($_C)) $_C = [];
+$DB_HOST  = $_C['db_host'] ?? '127.0.0.1';
+$DB_PORTS = isset($_C['db_port']) ? [(string) $_C['db_port']] : ['3306', '3307'];
+$DB_NAME  = $_C['db_name'] ?? 'freespace_db';
+$DB_USER  = $_C['db_user'] ?? 'root';
+$DB_PASS  = $_C['db_pass'] ?? '';
 
 date_default_timezone_set('Asia/Jakarta');
 header('Content-Type: application/json; charset=utf-8');

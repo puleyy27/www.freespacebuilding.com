@@ -80,10 +80,15 @@ if ($b['bukti_bayar']) {
 }
 
 if ($b['status'] === 'menunggu_verifikasi') {
+    $pilih = (string) ($_GET['aksi'] ?? '');
+    $hid = '<input type="hidden" name="id" value="' . e($id) . '"><input type="hidden" name="t" value="' . e($t) . '">';
+    $btnAcc = '<button class="b ok" name="aksi" value="acc" type="submit">✅ ACC - Pembayaran Valid</button>';
+    $btnTolak = '<textarea name="alasan" rows="2" maxlength="250" placeholder="Alasan penolakan (opsional, dikirim ke pelanggan)"></textarea>'
+        . '<button class="b no" name="aksi" value="tolak" type="submit" onclick="return confirm(\'Tolak pembayaran? Pendaftaran akan dibatalkan dan dihapus.\')">❌ TOLAK - Batalkan Pendaftaran</button>';
+
     $html .= '<p class="mu">Cek mutasi rekening, pastikan nominal & nama pengirim sesuai dan uang sudah masuk sebelum ACC.</p>'
-        . '<form method="post"><input type="hidden" name="id" value="' . e($id) . '"><input type="hidden" name="t" value="' . e($t) . '">'
-        . '<button class="b ok" name="aksi" value="acc" type="submit">✅ ACC - Pembayaran Valid</button>'
-        . '<textarea name="alasan" rows="2" maxlength="250" placeholder="Alasan penolakan (opsional, dikirim ke pelanggan)"></textarea>'
-        . '<button class="b no" name="aksi" value="tolak" type="submit" onclick="return confirm(\'Tolak pembayaran? Pendaftaran akan dibatalkan dan dihapus.\')">❌ TOLAK - Batalkan Pendaftaran</button></form>';
+        . '<form method="post">' . $hid
+        . ($pilih === 'acc' ? $btnAcc : ($pilih === 'tolak' ? $btnTolak : $btnAcc . $btnTolak))
+        . '</form>';
 }
 halaman('Verifikasi ' . $b['id'], $html);

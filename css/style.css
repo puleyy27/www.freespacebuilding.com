@@ -1009,7 +1009,7 @@ footer .w.two > div:first-child p a {
   .simw #simc .qh { font-size: .7rem; margin: 10px 0 4px; }
   .simw #simc .qh:first-child { margin-top: 0; }
   .simw #simc .opts { gap: 4px; margin: 0 0 2px; }
-  .simw #simc .opt span { min-height: 26px; padding: 0 8px; font-size: .64rem; gap: 3px; }
+  .simw #simc .opt span { min-height: 34px; padding: 0 10px; font-size: .64rem; gap: 3px; }
   .simw #simc .rng { margin-top: 10px; font-size: .7rem; }
   .simw #simc .rng span { font-size: .7rem; }
   .simw #simc input[type=range] { min-height: 24px; width: 100%; }
@@ -1757,8 +1757,11 @@ button.jcta-ic:focus-visible { outline: 3px solid rgba(47, 140, 255, .6); outlin
   .simw #simc { grid-column: 1; grid-row: 2; }
   .simw #simo { grid-column: 2; grid-row: 2; min-width: 0; }
   .simw #simr { grid-column: 1 / -1; grid-row: 3; margin-top: 4px; flex: none; justify-content: flex-start; }
-  .simw:has(#simo .sim-edit[style*="none"]) #simc { grid-column: 1 / -1; }
   .simw #simo { position: relative; min-height: 360px; min-width: 0; }
+  /* FIX: saat panel edit disembunyikan, #simo (min-height 360px) tidak boleh tetap menutupi opsi di kolom kanan */
+  .simw:has(#simo .sim-edit[style*="none"]) #simc { grid-column: 1 / -1; }
+  .simw:has(#simo .sim-edit[style*="none"]) #simo,
+  .simw #simo.off { display: none; }
   .simw #simo .sim-edit { position: absolute; inset: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; border: 1px solid var(--bd); border-radius: 12px; }
   .simw #simo .sim-edit > .se-p { order: -1; }
 }

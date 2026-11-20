@@ -1946,7 +1946,7 @@
     const placePanel = () => {
       if (!el.isConnected) return;
       const slot = el.parentNode && el.parentNode.querySelector('#simo');
-      if (mq && mq.matches && slot) slot.appendChild(panel); else el.appendChild(panel);
+      if (mq && mq.matches && slot) { slot.appendChild(panel); slot.classList.toggle('off', panel.style.display === 'none'); } else el.appendChild(panel);
     };
     placePanel();
     if (mq) (mq.addEventListener ? mq.addEventListener('change', placePanel) : mq.addListener(placePanel));
@@ -2029,6 +2029,7 @@
     function refreshPanel(force) {
       const inn = currentPlan();
       panel.style.display = inn ? '' : 'none';
+      if (panel.parentNode && panel.parentNode.id === 'simo') panel.parentNode.classList.toggle('off', !inn);
       if (!inn) {
         lastSig = null;
         return;
